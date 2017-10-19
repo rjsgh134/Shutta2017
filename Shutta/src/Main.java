@@ -8,8 +8,8 @@ public class Main {
 
 
         for (int i = 0; i < 20; i++) {
-            System.out.print(d1.cards.get(i)._num);
-            System.out.println("    " + d1.cards.get(i)._gwang);
+            System.out.print(d1.getCards().get(i).getNum());
+            System.out.println("    " + d1.getCards().get(i).getGwang());
         }
 
         Player p1 = new Player();
@@ -18,13 +18,13 @@ public class Main {
         d1.giveCard(p1,p2);
 
         d1.getMoney(p1,p2,100);
-        System.out.println(p1.money+"   "+p2.money);
+        System.out.println(p1.getMoney()+"   "+p2.getMoney());
         d1.giveMoney(p1);
-        System.out.println(p1.money);
+        System.out.println(p1.getMoney());
         d1.getMoney(p1,p2,100);
-        System.out.println(p1.money+"   "+p2.money);
+        System.out.println(p1.getMoney()+"   "+p2.getMoney());
         d1.giveMoney(p1);
-        System.out.println(p1.money);
+        System.out.println(p1.getMoney());
     }
 }
 

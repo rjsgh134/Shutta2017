@@ -3,17 +3,24 @@ import java.util.List;
 
  class Dealer {
     private static Dealer dealer = new Dealer();
-    List<Card> cards = new ArrayList<Card>();
-    int _bettedMoney;
+    private List<Card> cards = new ArrayList<>();
+    private int _bettedMoney;
 
+    //region
+    public List<Card> getCards(){
+        return cards;
+    }
+
+    //endregion
     private Dealer() {
         for (int i = 1; i <= 10; i++) {
+
             cards.add(new Card(i, false));
             cards.add(new Card(i, false));
         }
-        cards.get(0)._gwang = true;
-        cards.get(4)._gwang = true;
-        cards.get(14)._gwang = true;
+        cards.get(0).setGwang(true);
+        cards.get(4).setGwang(true);
+        cards.get(14).setGwang(true);
     }
 
     static Dealer getDealer() {
@@ -37,20 +44,21 @@ import java.util.List;
         int[] randomNum = new int[4];
         shuffleCards(randomNum);
 
-        p1.card1=cards.get(randomNum[0]);
-        p1.card2=cards.get(randomNum[1]);
-        p2.card1=cards.get(randomNum[2]);
-        p2.card2=cards.get(randomNum[3]);
+         p1.setCard1(cards.get(randomNum[0]));
+         p1.setCard2(cards.get(randomNum[1]));
+         p2.setCard1(cards.get(randomNum[2]));
+         p2.setCard2(cards.get(randomNum[3]));
+
     }
 
      void getMoney(Player p1,Player p2,int bettingMoney){
-        p1.money-=bettingMoney;
-        p2.money-=bettingMoney;
+        p1.setMoney(p1.getMoney()-bettingMoney);
+        p2.setMoney(p2.getMoney()-bettingMoney);
         _bettedMoney=bettingMoney*2;
     }
 
     void giveMoney(Player winner){
-        winner.money+=_bettedMoney;
+         winner.setMoney(winner.getMoney()+_bettedMoney);
     }
 
 }
