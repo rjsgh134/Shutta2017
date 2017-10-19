@@ -4,7 +4,16 @@ import java.util.List;
  class Dealer {
     private static Dealer dealer = new Dealer();
     private List<Card> cards = new ArrayList<>();
-    private int _bettedMoney;
+     private int _bettedMoney;
+    //region
+    public int getBattedMoney(){
+        return _bettedMoney;
+    }
+    public void setBattedMoney(int battedMoney){
+        if (_bettedMoney != battedMoney)
+            _bettedMoney = battedMoney;
+    }
+    //endregion
 
     //region
     public List<Card> getCards(){
@@ -21,6 +30,8 @@ import java.util.List;
         cards.get(0).setGwang(true);
         cards.get(4).setGwang(true);
         cards.get(14).setGwang(true);
+
+        //_bettedMoney=0;
     }
 
     static Dealer getDealer() {
@@ -59,6 +70,7 @@ import java.util.List;
 
     void giveMoney(Player winner){
          winner.setMoney(winner.getMoney()+_bettedMoney);
+         _bettedMoney=0;
     }
 
 }

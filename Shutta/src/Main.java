@@ -14,17 +14,25 @@ public class Main {
 
         Player p1 = new Player();
         Player p2 = new Player();
-
-        d1.giveCard(p1,p2);  
+        d1.giveCard(p1,p2);
 
         d1.getMoney(p1,p2,100);
         System.out.println(p1.getMoney()+"   "+p2.getMoney());
         d1.giveMoney(p1);
         System.out.println(p1.getMoney());
+        p1.getRecord().addWinCount();
+        p2.getRecord().addLoseCount();
         d1.getMoney(p1,p2,100);
         System.out.println(p1.getMoney()+"   "+p2.getMoney());
         d1.giveMoney(p1);
         System.out.println(p1.getMoney());
+        p1.getRecord().addWinCount();
+        p2.getRecord().addLoseCount();
+        System.out.println(d1.getBattedMoney());
+        System.out.println(p1.getRecord().getDrawCount());
+
+        Rank rank=new Rank();
+        rank.decisionRank(p1,p2);
     }
 }
 

@@ -1,8 +1,23 @@
  class Player {
-     private int _money=1000;
+     private int _money;
      private Card _card1;
      private Card _card2;
-     private int _winCount=0;
+     private Record _record;
+
+     Player(){
+         _money=1000;
+         _record=new Record();
+     }
+
+     //region
+     public Record getRecord(){
+         return _record;
+     }
+     public void setRecord(Record record){
+         if (_record != record)
+             _record = record;
+     }
+     //endregion
 
     //region
     public int getMoney(){
@@ -34,13 +49,5 @@
      }
      //endregion
 
-     //region
-     public int getWinCount(){
-         return _winCount;
-     }
-     public void setWinCount(int winCount){
-         if (_winCount != winCount)
-             _winCount = winCount;
-     }
-     //endregion
+
 }
