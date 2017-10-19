@@ -15,7 +15,7 @@ public class Main {
         Player p1 = new Player();
         Player p2 = new Player();
 
-        d1.giveCard(p1,p2);
+        d1.giveCard(p1,p2);  
 
         d1.getMoney(p1,p2,100);
         System.out.println(p1.getMoney()+"   "+p2.getMoney());
